@@ -78,4 +78,4 @@ sudo ./install -n
 => accessible under https://[pi-ip]:tba
 
 
-[^1]: Diffulties MagicMirror is based on Raspian OS **with desktop enviroment**, but OpenMediaVault is designed to run on a lite Raspbain version (so for a beginner like me a broad task)
+[^1]: Diffulties: MagicMirror is based on Raspian OS **with desktop enviroment**, but OpenMediaVault is designed to run on a lite Raspbain version (so for a beginner like me a broad task)
