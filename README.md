@@ -8,6 +8,13 @@ important ports:
     portainer       -> 9000
     pihole          -> tba
 
+## TODO
+- [ ] Add docker containers to script
+    - [ ] Add HomeAssistant docker image
+    - [ ] Add PiHole docker image
+    - [ ] Add RaspAP docker image
+- [ ] Test install script
+
 ## Basic setup
 1. install Raspberry Pi OS lite (32-bit)
 2. install script for MagicMirror for raspbian lite (https://github.com/pureartisan/magic-mirror-raspbian-lite)
