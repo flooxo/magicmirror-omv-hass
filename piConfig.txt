@@ -1,0 +1,127 @@
+  ____  _    ____             __ _                                  
+ |  _ \(_)  / ___|___  _ __  / _(_) __ _
+ | |_) | | | |   / _ \| '_ \| |_| |/ _` |
+ |  __/| | | |__| (_) | | | |  _| | (_| |
+ |_|   |_|  \____\___/|_| |_|_| |_|\__, |
+                                   |___/ 
+
+important ports:
+    openmediavault  -> 80
+    magicmirror     -> 8080
+    homeassistant   -> 8123
+    portainer       -> 9000
+    pihole          -> tba
+
+## 1. install Raspberry Pi OS (32-bit) ##
+## 2. update -> sudo apt-get update && sudo apt upgrade -y ##
+
+
+o ._   _ _|_  _. | |    _  ._   _  ._  ._ _   _   _| o  _.     _.     | _|_ o 
+| | | _>  |_ (_| | |   (_) |_) (/_ | | | | | (/_ (_| | (_| \/ (_| |_| |  |_ o 
+                           |                                                  
+## installScript to skip network setup ##
+wget https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install
+chmod +x install
+sudo ./install -n
+
+## => accessible under https://[pi-ip] ##
+## (FIX DNS: add wlan under network -> interfaces wlan + dns) ##
+
+
+o ._   _ _|_  _. | |    _|  _   _ |   _  ._ o
+| | | _>  |_ (_| | |   (_| (_) (_ |< (/_ |  o
+## 3. install docker ## -> not neccesary when installed omv
+curl -sSL https://get.docker.com | sh
+
+## 4. add user to docker group ##
+sudo usermod -aG docker $USER
+
+## 5. make effective ##
+newgrp docker
+
+## 6. test if docker is running -> docker version ##
+                                                   
+o ._   _ _|_  _. | |   ._   _  ._ _|_  _. o ._   _  ._ o 
+| | | _>  |_ (_| | |   |_) (_) |   |_ (_| | | | (/_ |  o 
+                       |                                 
+## 7. install portainer ##
+sudo docker pull portainer/portainer-ce:linux-arm
+
+## 8. set settings ##
+sudo docker run --restart always --name=portainer -d -p 8000:8000 -p 9443:9443 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm --http-disabled
+
+## 9. open webinterface -> https://[pi-ip]:9443 ##
+
+                                                               
+ _.  _|  _|   |_   _  ._ _   _   _.  _  _ o  _ _|_  _. ._ _|_ o
+(_| (_| (_|   | | (_) | | | (/_ (_| _> _> | _>  |_ (_| | | |_ o
+(in portainer; ✔WORKING✔)
+## 1. in local     -> container->add container ##
+## 2. set name     -> HomeAssistant  ##
+## 3. set image    -> homeassistant/home-assistant ##
+## 4. volumes ##
+    /home/pi/HomeAssistant/config -> bind
+        -> /config
+    /etc/localtime -> bind
+        -> /etc/localtime
+## 5. network->network set host ##
+## 6. restart policy set unless stopped ##
+## 7. click deploy container ##
+## -> see logs if running correctly ##
+## => accessible under https://[pi-ip]:8123 ##
+
+                                                                      
+ _.  _|  _|    _  ._   _  ._  ._ _   _   _| o  _.     _.     | _|_ o 
+(_| (_| (_|   (_) |_) (/_ | | | | | (/_ (_| | (_| \/ (_| |_| |  |_ o 
+                  |
+(in portainer; ❌not recommended❌) but old version
+## 1. in local     -> container->add container ##
+## 2. set name     -> OpenMediaVault ##
+## 3. set image    -> cedricdelpas/openmediavault (cuz it's arm64 for pi's) ##
+## 4. volumes ##
+    /home/pi/OpenMediaVault/data -> bind
+        -> /data
+## 5. network      -> network set host ##
+## 6. restart policy set unless stopped ##
+## 7. click deploy container ##
+## -> see logs if running correctly ##
+## => accessible under https://[pi-ip]:80 (default: admin; openmediavault) ##                                        
+
+ _.  _|  _|   ._ _   _.  _  o  _ ._ _  o ._ ._ _  ._ o 
+(_| (_| (_|   | | | (_| (_| | (_ | | | | |  | (_) |  o 
+                         _|
+(in portainer; ✔WORKING✔) TODO: try magic mirror raspbian lite without container son no 2nd pi need
+## 1. in local     -> container->add container ##
+## 2. set name     -> MagicMirror ##
+## 3. set image    -> bastilimbach/docker-magicmirror (server use only) ##
+## 4. volumes ##
+    /opt/magic_mirror/config -> bind
+        -> /magic_mirror/config
+    /opt/magic_mirror/modules -> bind
+        -> /magic_mirror/modules
+    /opt/magic_mirror/css/custom.css -> bind FIXME: maybe not?! but creat own dir for main.css
+        -> /magic_mirror/css/custom.css
+    /etc/localtime -> bind
+        -> /etc/localtime (read only)
+## 5. network->network set host ##
+## 6. restart policy set unless stopped ##
+## 7. click deploy container ##
+## -> see logs if running correctly ##
+## => accessible under https://[pi-ip]:8080 ##
+## modules: MMM-NowPlayingOnSpotify -> fix with https://github.com/raywo/MMM-NowPlayingOnSpotify/issues/59 ##
+
+ _.  _|  _|   ._  o |_   _  |  _  o 
+(_| (_| (_|   |_) | | | (_) | (/_ o 
+              |                     
+(in portainer)
+## 1. in local     -> container->add container ##
+## 2. set name     -> PiHole ##
+## 3. set image    -> pihole/pihole ##
+## 4. volumes ##
+    /home/pi/HomeAssistant/config -> bind
+        -> /config
+## 5. network->network set host ##
+## 6. restart policy set unless stopped ##
+## 7. click deploy container ##
+## -> see logs if running correctly ##
+## => accessible under https://[pi-ip]:tba ##
