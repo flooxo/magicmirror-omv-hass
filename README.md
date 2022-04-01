@@ -1,5 +1,10 @@
 # Pi Config                     
 
+This repo contains config files and (for me personal) useful information about configurations and setups.
+After a long time and hours of work, I finally have been able to put all the parts together[^1], so that I have managed to get the raspberry pi running according to my ideas
+
+**My goal: use the pi as a smart mirror, NAS and smart home network and much more**
+
 important ports:
 
     openmediavault  -> 80
@@ -71,3 +76,6 @@ sudo ./install -n
 7. click deploy container
 -> see logs if running correctly
 => accessible under https://[pi-ip]:tba
+
+
+[^1]: Diffulties MagicMirror is based on Raspian OS **with desktop enviroment**, but OpenMediaVault is designed to run on a lite Raspbain version
