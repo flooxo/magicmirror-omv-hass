@@ -32,18 +32,18 @@ sudo ./install -n
 
 ## Add HomeAssistant to Portainer
 1. in local     -> container->add container
-2. set name     -> HomeAssistant
-3. set image    -> homeassistant/home-assistant
+2. set name     -> **HomeAssistant**
+3. set image    -> **homeassistant/home-assistant**
 4. volumes
 
     **/home/pi/HomeAssistant/config** -> bind
-        -> **/config
+        -> **/config**
         
     **/etc/localtime** -> bind
-        -> **/etc/localtime
+        -> **/etc/localtime**
         
-5. network->network set host
-6. restart policy set unless stopped
+5. network->**network set host**
+6. restart policy set **unless stopped**
 7. click deploy container
 -> see logs if running correctly
 => accessible under https://[pi-ip]:8123
@@ -52,14 +52,14 @@ sudo ./install -n
 ## Add PiHole to Portainer
 (❌not testet yet)
 1. in local     -> container->add container
-2. set name     -> PiHole
-3. set image    -> pihole/pihole
+2. set name     -> **PiHole**
+3. set image    -> **pihole/pihole**
 4. volumes
 
-    /home/pi/HomeAssistant/config -> bind
-        -> /config
-5. network->network set host
-6. restart policy set unless stopped
+    **/home/pi/HomeAssistant/config** -> bind
+        -> **/config**
+5. network->**network set host**
+6. restart policy set **unless stopped**
 7. click deploy container
 -> see logs if running correctly
 => accessible under https://[pi-ip]:tba
