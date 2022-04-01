@@ -14,6 +14,7 @@ important ports:
     - [ ] Add PiHole docker image
     - [ ] Add RaspAP docker image
 - [ ] Test install script
+- [ ] Add configs of PiHole; MagicMirror; OMV setup and storage settings
 
 ## Basic setup
 1. install Raspberry Pi OS lite (32-bit)
