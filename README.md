@@ -36,11 +36,11 @@ sudo ./install -n
 3. set image    -> homeassistant/home-assistant
 4. volumes
 
-    /home/pi/HomeAssistant/config -> bind
-        -> /config
+    **/home/pi/HomeAssistant/config** -> bind
+        -> **/config
         
-    /etc/localtime -> bind
-        -> /etc/localtime
+    **/etc/localtime** -> bind
+        -> **/etc/localtime
         
 5. network->network set host
 6. restart policy set unless stopped
