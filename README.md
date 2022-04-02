@@ -77,5 +77,9 @@ sudo ./install -n
 -> see logs if running correctly
 => accessible under https://[pi-ip]:tba
 
+# MagicMirror modules
+- [MMM-NowPlayingOnSpotify](https://github.com/raywo/MMM-NowPlayingOnSpotify) (with FIX [#59](https://github.com/raywo/MMM-NowPlayingOnSpotify/issues/59))
+- [MMM-MagicMover](https://github.com/Lavve/MMM-MagicMover)
+- 
 
 [^1]: Diffulties: MagicMirror is based on Raspian OS **with desktop enviroment**, but OpenMediaVault is designed to run on a lite Raspbain version (so for a beginner like me a broad task)
