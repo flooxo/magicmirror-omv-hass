@@ -1,4 +1,4 @@
-# Pi Config                     
+# MagicMirror with OpenMediaVault and HomeAssitant (Docker + Portainer)                     
 
 This repo contains config files and (for me personal) useful information about configurations and setups.
 After a long time and hours of work, I finally have been able to put all the parts together[^1], so that I have managed to get the raspberry pi running according to my ideas
