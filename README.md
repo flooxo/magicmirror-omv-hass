@@ -83,4 +83,4 @@ sudo ./install -n
 - [MMM-MagicMover](https://github.com/Lavve/MMM-MagicMover)
 - 
 
-[^1]: Diffulties: MagicMirror is based on Raspian OS **with desktop enviroment**, but OpenMediaVault is designed to run on a lite Raspbain version (so for a beginner like me a broad task)
+[^1]: Difficulties: MagicMirror is based on Raspian OS **with desktop enviroment**, but OpenMediaVault is designed to run on a lite Raspbain version (so for a beginner like me a broad task)
