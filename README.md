@@ -20,6 +20,7 @@ important ports:
     - [ ] Add RaspAP docker image
 - [ ] Test install script
 - [ ] Add configs of PiHole; MagicMirror; OMV setup and storage settings
+- [ ] Add RaspAp (maybe container) -> all smart home devices in own network
 
 ## Basic setup
 1. install Raspberry Pi OS lite (32-bit)
